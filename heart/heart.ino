@@ -49,10 +49,10 @@ void loop() {
     if (currentMillis - previousMillis >= interval) {
       if (currentVoltage > threshold) {
       digitalWrite(led, HIGH); //switch internal LED on
-      digitalWrite(volt, HIGH); //switch Mstim board on
+      //digitalWrite(volt, HIGH); //switch Mstim board on
         }
       else {
-        digitalWrite(led, LOW);
+        digitalWrite(led, LOW); //switches internal LED and Mstim signal off
         digitalWrite(volt, LOW);
         }
       }
