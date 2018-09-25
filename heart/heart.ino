@@ -18,7 +18,8 @@ This code is beerware. If you see me (or any other SparkFun employee) at the
 local pub, and you've found our code helpful, please buy us a round!
 Distributed as-is; no warranty is given.
 ******************************************************************************/
-int led = 13;
+int led = 13; //internal Arduino LED
+int volt = 5; //enable pin for Mstim board
 int threshold = 600;
 int currentVoltage  = 0;         // current voltage value
 int previousVoltage = 0;     // previous voltage value    
@@ -26,8 +27,9 @@ int interval = 5;
 unsigned long previousMillis = 0; 
 
 void setup() {
-  // initialize the digital pin as an output.
+  // initialize the needed digital pins as outputs.
   pinMode(led, OUTPUT);  
+  pinMode(volt, OUTPUT);
   // initialize the serial communication:
   Serial.begin(9600);
   pinMode(10, INPUT); // Setup for leads off detection LO +
@@ -46,10 +48,12 @@ void loop() {
     // send the value of analog input 0:
     if (currentMillis - previousMillis >= interval) {
       if (currentVoltage > threshold) {
-      digitalWrite(led, HIGH);
+      digitalWrite(led, HIGH); //switch internal LED on
+      digitalWrite(volt, HIGH); //switch Mstim board on
         }
       else {
         digitalWrite(led, LOW);
+        digitalWrite(volt, LOW);
         }
       }
       previousMillis = currentMillis;
