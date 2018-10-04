@@ -14,8 +14,6 @@ int val = 0;
 // Variables will change:
 int ledState = LOW;             // ledState used to set the LED
 
-// Generally, you should use "unsigned long" for variables that hold time
-// The value will quickly become too large for an int to store
 unsigned long previousMillis = 0; 
 const long interval = 1000;
 
@@ -24,7 +22,7 @@ const long interval = 1000;
 
 // the setup routine runs once when you press reset:
 void setup() {                
-  // initialize the digital pin as an output.
+  // initialize the digital pins as outputs.
   pinMode(led, OUTPUT);     
   pinMode(volt, OUTPUT);
   pinMode(analogPin, INPUT_PULLUP);
@@ -49,5 +47,4 @@ void loop() {
     // set the LED with the ledState of the variable:
     digitalWrite(led, ledState);
     digitalWrite(volt, ledState);
-   
 }

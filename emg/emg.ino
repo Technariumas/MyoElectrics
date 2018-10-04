@@ -40,7 +40,7 @@ void loop() {
     Serial.println('!');
   }
   else {
-      currentVoltage = analogRead(A5); //reads the voltage from ECG board
+      currentVoltage = analogRead(A0); //reads the voltage from ECG board
       Serial.println(currentVoltage);    
     // send the value of analog input 0:
     if (currentMillis - previousMillis >= interval) {
